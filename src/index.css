@@ -1,0 +1,638 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 8%;
+    --foreground: 0 0% 95%;
+
+    --card: 0 0% 12%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 0 0% 12%;
+    --popover-foreground: 0 0% 95%;
+
+    --primary: 0 84% 40%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 0 0% 16%;
+    --secondary-foreground: 0 0% 95%;
+
+    --muted: 0 0% 16%;
+    --muted-foreground: 0 0% 65%;
+
+    --accent: 0 0% 16%;
+    --accent-foreground: 0 0% 95%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 0 84% 40%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 8%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 0 84% 40%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 0 0% 16%;
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-border: 0 0% 20%;
+    --sidebar-ring: 0 84% 40%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a0a0a 50%, #0a0a0a 100%);
+    min-height: 100vh;
+  }
+}
+
+/* Smooth performance optimizations */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.glass-effect {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-effect:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.text-shadow {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Subtle floating hearts */
+@keyframes heartFloat {
+  0%,
+  100% {
+    transform: translateY(0px) scale(1);
+    opacity: 0.1;
+  }
+  50% {
+    transform: translateY(-8px) scale(1.02);
+    opacity: 0.15;
+  }
+}
+
+/* Floating hearts animation from bottom to top */
+@keyframes floatUpHeart {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: var(--heart-opacity, 0.3);
+  }
+  90% {
+    opacity: var(--heart-opacity, 0.3);
+  }
+  100% {
+    transform: translateY(-100vh) rotate(calc(var(--heart-rotate, 20) * 1deg));
+    opacity: 0;
+  }
+}
+
+/* Subtle red gradients for poem section */
+@keyframes redGradient1 {
+  0%,
+  100% {
+    opacity: 0;
+    transform: translateX(-100%) rotate(0deg);
+  }
+  50% {
+    opacity: 0.15;
+    transform: translateX(100%) rotate(180deg);
+  }
+}
+
+@keyframes redGradient2 {
+  0%,
+  100% {
+    opacity: 0;
+    transform: translateY(-100%) rotate(0deg);
+  }
+  50% {
+    opacity: 0.1;
+    transform: translateY(100%) rotate(90deg);
+  }
+}
+
+@keyframes redGradient3 {
+  0%,
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.5);
+  }
+  50% {
+    opacity: 0.08;
+    transform: translate(-50%, -50%) scale(1.5);
+  }
+}
+
+.poem-red-gradient-1 {
+  position: absolute;
+  top: 20%;
+  left: 0;
+  width: 300px;
+  height: 200px;
+  background: radial-gradient(ellipse, rgba(220, 38, 38, 0.3) 0%, transparent 70%);
+  animation: redGradient1 15s ease-in-out infinite;
+  animation-delay: 0s;
+}
+
+.poem-red-gradient-2 {
+  position: absolute;
+  top: 0;
+  right: 10%;
+  width: 250px;
+  height: 300px;
+  background: linear-gradient(45deg, rgba(239, 68, 68, 0.2) 0%, transparent 60%);
+  animation: redGradient2 18s ease-in-out infinite;
+  animation-delay: 3s;
+}
+
+.poem-red-gradient-3 {
+  position: absolute;
+  bottom: 30%;
+  left: 50%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(185, 28, 28, 0.15) 0%, transparent 50%);
+  animation: redGradient3 20s ease-in-out infinite;
+  animation-delay: 6s;
+}
+
+/* Word Effect Animations */
+@keyframes fervorPulse {
+  0%,
+  100% {
+    color: #fca5a5;
+    text-shadow: 0 0 5px rgba(252, 165, 165, 0.3);
+  }
+  50% {
+    color: #f87171;
+    text-shadow: 0 0 15px rgba(248, 113, 113, 0.6);
+  }
+}
+
+@keyframes fireGlow {
+  0%,
+  100% {
+    color: #fb923c;
+    text-shadow: 0 0 8px rgba(251, 146, 60, 0.4);
+  }
+  25% {
+    color: #f97316;
+    text-shadow: 0 0 20px rgba(249, 115, 22, 0.7);
+  }
+  50% {
+    color: #dc2626;
+    text-shadow: 0 0 25px rgba(220, 38, 38, 0.8);
+  }
+  75% {
+    color: #f97316;
+    text-shadow: 0 0 20px rgba(249, 115, 22, 0.7);
+  }
+}
+
+@keyframes starTwinkle {
+  0%,
+  100% {
+    color: #fbbf24;
+    text-shadow: 0 0 10px rgba(251, 191, 36, 0.5);
+    transform: scale(1);
+  }
+  25% {
+    color: #f59e0b;
+    text-shadow: 0 0 20px rgba(245, 158, 11, 0.8);
+    transform: scale(1.05);
+  }
+  50% {
+    color: #ffffff;
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.9);
+    transform: scale(1.1);
+  }
+  75% {
+    color: #f59e0b;
+    text-shadow: 0 0 20px rgba(245, 158, 11, 0.8);
+    transform: scale(1.05);
+  }
+}
+
+@keyframes brightGlow {
+  0%,
+  100% {
+    color: #fbbf24;
+    text-shadow: 0 0 15px rgba(251, 191, 36, 0.6);
+  }
+  50% {
+    color: #ffffff;
+    text-shadow: 0 0 30px rgba(255, 255, 255, 1), 0 0 40px rgba(251, 191, 36, 0.8);
+  }
+}
+
+@keyframes magicShimmer {
+  0% {
+    color: #a855f7;
+    text-shadow: 0 0 10px rgba(168, 85, 247, 0.5);
+  }
+  25% {
+    color: #ec4899;
+    text-shadow: 0 0 15px rgba(236, 72, 153, 0.6);
+  }
+  50% {
+    color: #06b6d4;
+    text-shadow: 0 0 20px rgba(6, 182, 212, 0.7);
+  }
+  75% {
+    color: #10b981;
+    text-shadow: 0 0 15px rgba(16, 185, 129, 0.6);
+  }
+  100% {
+    color: #a855f7;
+    text-shadow: 0 0 10px rgba(168, 85, 247, 0.5);
+  }
+}
+
+@keyframes mysticAura {
+  0%,
+  100% {
+    color: #8b5cf6;
+    text-shadow: 0 0 20px rgba(139, 92, 246, 0.6);
+  }
+  50% {
+    color: #a78bfa;
+    text-shadow: 0 0 30px rgba(167, 139, 250, 0.8), 0 0 40px rgba(139, 92, 246, 0.4);
+  }
+}
+
+@keyframes eyesGlow {
+  0%,
+  100% {
+    color: #06b6d4;
+    text-shadow: 0 0 15px rgba(6, 182, 212, 0.6);
+  }
+  50% {
+    color: #0891b2;
+    text-shadow: 0 0 25px rgba(8, 145, 178, 0.8);
+  }
+}
+
+@keyframes soulFloat {
+  0%,
+  100% {
+    color: #e0e7ff;
+    text-shadow: 0 0 10px rgba(224, 231, 255, 0.5);
+    transform: translateY(0);
+  }
+  50% {
+    color: #c7d2fe;
+    text-shadow: 0 0 20px rgba(199, 210, 254, 0.7);
+    transform: translateY(-2px);
+  }
+}
+
+@keyframes heartBeat {
+  0%,
+  100% {
+    color: #f87171;
+    text-shadow: 0 0 10px rgba(248, 113, 113, 0.5);
+    transform: scale(1);
+  }
+  50% {
+    color: #dc2626;
+    text-shadow: 0 0 20px rgba(220, 38, 38, 0.8);
+    transform: scale(1.05);
+  }
+}
+
+@keyframes eternityGlow {
+  0% {
+    color: #fbbf24;
+    text-shadow: 0 0 10px rgba(251, 191, 36, 0.4);
+  }
+  25% {
+    color: #f59e0b;
+    text-shadow: 0 0 20px rgba(245, 158, 11, 0.6);
+  }
+  50% {
+    color: #ffffff;
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
+  }
+  75% {
+    color: #f59e0b;
+    text-shadow: 0 0 20px rgba(245, 158, 11, 0.6);
+  }
+  100% {
+    color: #fbbf24;
+    text-shadow: 0 0 10px rgba(251, 191, 36, 0.4);
+  }
+}
+
+@keyframes nameGlow {
+  0%,
+  100% {
+    color: #fca5a5;
+    text-shadow: 0 0 8px rgba(252, 165, 165, 0.4);
+  }
+  50% {
+    color: #f87171;
+    text-shadow: 0 0 18px rgba(248, 113, 113, 0.7);
+  }
+}
+
+@keyframes destinyShine {
+  0%,
+  100% {
+    color: #a78bfa;
+    text-shadow: 0 0 12px rgba(167, 139, 250, 0.5);
+  }
+  50% {
+    color: #8b5cf6;
+    text-shadow: 0 0 22px rgba(139, 92, 246, 0.8);
+  }
+}
+
+/* Word Effect Classes */
+.word-fervor {
+  animation: fervorPulse 2.5s ease-in-out infinite;
+  display: inline-block;
+}
+
+.word-fire {
+  animation: fireGlow 2s ease-in-out infinite;
+  display: inline-block;
+}
+
+.word-star {
+  animation: starTwinkle 3s ease-in-out infinite;
+  display: inline-block;
+}
+
+.word-bright {
+  animation: brightGlow 2s ease-in-out infinite;
+  display: inline-block;
+}
+
+.word-magic {
+  animation: magicShimmer 4s ease-in-out infinite;
+  display: inline-block;
+}
+
+.word-mystic {
+  animation: mysticAura 3s ease-in-out infinite;
+  display: inline-block;
+}
+
+.word-eyes {
+  animation: eyesGlow 2.5s ease-in-out infinite;
+  display: inline-block;
+}
+
+.word-soul {
+  animation: soulFloat 3s ease-in-out infinite;
+  display: inline-block;
+}
+
+.word-heart {
+  animation: heartBeat 1.5s ease-in-out infinite;
+  display: inline-block;
+}
+
+.word-eternity {
+  animation: eternityGlow 4s ease-in-out infinite;
+  display: inline-block;
+}
+
+.word-name {
+  animation: nameGlow 2s ease-in-out infinite;
+  display: inline-block;
+}
+
+.word-destiny {
+  animation: destinyShine 3s ease-in-out infinite;
+  display: inline-block;
+}
+
+/* Smooth fade animations */
+/* Adicionar a animação de text-reveal que está faltando */
+@keyframes text-reveal {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+    filter: blur(4px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes smoothFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes smoothScaleIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes gentleSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes softPulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+}
+
+@keyframes letterSpacing {
+  0%,
+  100% {
+    letter-spacing: normal;
+  }
+  50% {
+    letter-spacing: 0.1em;
+  }
+}
+
+/* Enhanced text reveal */
+@keyframes enhancedTextReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.9);
+    filter: blur(8px);
+  }
+  60% {
+    opacity: 0.8;
+    transform: translateY(5px) scale(1.02);
+    filter: blur(2px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+/* Smooth animations */
+.animate-fade-in {
+  animation: smoothFadeIn 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.animate-scale-in {
+  animation: smoothScaleIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.animate-slide-in {
+  animation: gentleSlideIn 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Garantir que a classe animate-text-reveal use a animação correta */
+.animate-text-reveal {
+  animation: text-reveal 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.animate-soft-pulse {
+  animation: softPulse 3s ease-in-out infinite;
+}
+
+/* Smooth transitions for all interactive elements */
+.smooth-transition {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.smooth-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Performance optimizations */
+.will-change-transform {
+  will-change: transform;
+}
+
+.will-change-opacity {
+  will-change: opacity;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom easing for better feel */
+.ease-custom {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Staggered animations */
+.stagger-1 {
+  animation-delay: 0.1s;
+}
+.stagger-2 {
+  animation-delay: 0.2s;
+}
+.stagger-3 {
+  animation-delay: 0.3s;
+}
+.stagger-4 {
+  animation-delay: 0.4s;
+}
+.stagger-5 {
+  animation-delay: 0.5s;
+}
+.stagger-6 {
+  animation-delay: 0.6s;
+}
+
+/* Smooth backdrop blur */
+.backdrop-blur-smooth {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Smooth gradient animations */
+@keyframes gradientShift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradientShift 8s ease infinite;
+}
+
+/* FlashCard 3D effect */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+/* Shadow glow effect for red elements */
+.shadow-glow-red {
+  box-shadow: 0 0 15px rgba(220, 38, 38, 0.3);
+}
