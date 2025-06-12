@@ -83,12 +83,12 @@ const PoemSection = ({ onProgressUpdate }: PoemSectionProps) => {
     "oi meu amor",
     "hoje é dia 12",
     "eu fiz esse site pra tentar demonstrar todo o meu amor por você, mesmo que apenas assim seja pouco",
-    "eu provavelmente estou na sua frente agora",
+    "eu talvez mas só talvez esteja na sua frente agora",
     "eu te amo. aproveite um de seus presentes!",
   ]
 
   const poemLines = [
-    "sinto um fervor subir do peito quando penso em ti",
+    "no dia primeiro de junho, ele me escreveu: eu te quero como se te sonhasse há mil anos. é como quem acende velas em segredo, e reza teu nome no escuro. eu te quero na febre, e no silêncio. eu te quero nos lençóis e nas esquinas; nos goles que queimam, mas rezas sussurradas entre dentes, no suor da pele que vira promessa. você me habita com a delicadeza de um milagre, e mesmo assim me toma com a força de um temporal. é como se meu corpo soubesse o caminho do teu e meu nome só fizesse sentido na tua boca. me ama. até que a saudade se perca no eco do teu toque. deixo então, o peito escancarado pra ser teu, inteiro. das cartas que meu peito insiste em te escrever, número vinte e um.",
     "e não desses que queimam e somem",
     "mas um que se espalha devagarinho",
     "do coração até a ponta dos dedos",
