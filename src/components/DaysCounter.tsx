@@ -8,7 +8,7 @@ const DaysCounter = () => {
   const [minutes, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
   
-  const startDate = new Date('2024-01-03');
+  const startDate = new Date('2024-05-20');
   
   useEffect(() => {
     const calculateTime = () => {
