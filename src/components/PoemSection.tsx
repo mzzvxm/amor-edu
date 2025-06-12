@@ -88,29 +88,27 @@ const PoemSection = ({ onProgressUpdate }: PoemSectionProps) => {
   ]
 
   const poemLines = [
-    "no dia primeiro de junho, ele me escreveu: eu te quero como se te sonhasse há mil anos. é como quem acende velas em segredo, e reza teu nome no escuro. eu te quero na febre, e no silêncio. eu te quero nos lençóis e nas esquinas; nos goles que queimam, mas rezas sussurradas entre dentes, no suor da pele que vira promessa. você me habita com a delicadeza de um milagre, e mesmo assim me toma com a força de um temporal. é como se meu corpo soubesse o caminho do teu e meu nome só fizesse sentido na tua boca. me ama. até que a saudade se perca no eco do teu toque. deixo então, o peito escancarado pra ser teu, inteiro. das cartas que meu peito insiste em te escrever, número vinte e um.",
-    "e não desses que queimam e somem",
-    "mas um que se espalha devagarinho",
-    "do coração até a ponta dos dedos",
-    "como se teu nome tivesse acendido uma estrela dentro de mim",
-    "e transformasse cada célula do meu corpo",
-    "num altar aceso",
-    "só pra te receber",
-    "você é um feitiço bordado a mão",
-    "o universo te costurou do avesso do tempo",
-    "só pra caber no meu destino",
-    "você é mística",
-    "te amar é ter a alma lavada toda vez que seus olhos",
-    "(seus olhos que são só teus)",
-    "se debruçam sobre mim",
-    "e fazem o mundo desaparecer",
-    "somos nós dois",
-    "sempre.",
+    "eu te quero como se te sonhasse há mil anos.",
+    "é como quem acende velas em segredo",
+    "e reza teu nome no escuro.",
+    "eu te quero na febre, e no silêncio.",
+    "eu te quero nos lençóis e nas esquinas",
+    "nos goles que queimam",
+    "mas rezas sussurradas entre dentes",
+    "no suor da pele que vira promessa.",
+    "você me habita com a delicadeza de um milagre",
+    "e mesmo assim me toma com a força de um temporal.",
+    "é como se meu corpo soubesse o caminho do teu",
+    "e meu nome só fizesse sentido na tua boca.",
+    "me ama.",
+    "até que a saudade se perca no eco do teu toque.",
+    "deixo então, o peito escancarado pra ser teu inteiro.",
+    "eu te amo."
   ]
 
   // Calculate time difference
   useEffect(() => {
-    const startDate = new Date("2024-01-03")
+    const startDate = new Date("2024-05-20")
 
     const updateTime = () => {
       const now = new Date()
@@ -278,7 +276,7 @@ const PoemSection = ({ onProgressUpdate }: PoemSectionProps) => {
         {showEyesPhoto && (
           <div className="mb-8 animate-scale-in">
             <img
-              src="https://i.postimg.cc/jStLd6hk/Design-sem-nome-13.png"
+              src="https://i.postimg.cc/G27YX8cd/olhos.jpg"
               alt="Seus olhos únicos"
               className="mx-auto rounded-lg shadow-2xl border border-blood-red-400/30 opacity-85 smooth-transition hover:opacity-95"
               style={{ maxWidth: "900px", height: "150px", objectFit: "cover" }}
