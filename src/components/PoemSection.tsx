@@ -94,7 +94,7 @@ const PoemSection = ({ onProgressUpdate }: PoemSectionProps) => {
     "eu te quero na febre, e no silêncio.",
     "eu te quero nos lençóis e nas esquinas",
     "nos goles que queimam",
-    "mas rezas sussurradas entre dentes",
+    "nas rezas sussurradas entre dentes",
     "no suor da pele que vira promessa.",
     "você me habita com a delicadeza de um milagre",
     "e mesmo assim me toma com a força de um temporal.",
